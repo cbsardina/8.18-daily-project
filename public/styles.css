@@ -1,0 +1,70 @@
+/*////////// login.mustache //////////
+////////////////////////////////////*/
+body {
+  background-color: #627264;
+  color: #6F636D;
+}
+input {
+  margin: 1em;
+  font-size: 1em;
+  padding: .5em;
+  width: 30%;
+}
+h1 {
+  margin: 0 auto;
+  font-size: 4em;
+  font-weight: 300;
+}
+h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 3em;
+  font-weight: 600;
+}
+button {
+  font-size: 1.25em;
+  color: #fff;
+  background-color: #9E8D9B;
+  border: none;
+  padding: .5em .75em;
+  border-radius: 10px;
+}
+button:focus {
+  outline: none;
+}
+button:hover {
+  background-color: #D2C8D0;
+  color: #C5E7E2;
+}
+button:active {
+  background-color: green;
+}
+/*----- LOGIN SECTION -----*/
+.loginSection {
+  margin: 1em auto;
+  width: 80%;
+  padding: 2em;
+  background-color: #A1CDA8;
+}
+.loginSection form {
+  padding: 2em;
+  background-color: #C5E7E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*----- SIGNUP SECTION -----*/
+.signupSection {
+  margin: 1em auto;
+  width: 80%;
+  padding: 2em;
+  background-color: #A1CDA8;
+}
+.signupSection form {
+  padding: 2em;
+  background-color: #C5E7E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
