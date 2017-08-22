@@ -1,0 +1,25 @@
+{
+  "name": "8.18-daily-project",
+  "version": "1.0.0",
+  "description": "Create a site with login",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbsardina/8.18-daily-project.git"
+  },
+  "author": "C Sardina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbsardina/8.18-daily-project/issues"
+  },
+  "homepage": "https://github.com/cbsardina/8.18-daily-project#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.5"
+  }
+}
