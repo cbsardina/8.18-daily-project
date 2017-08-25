@@ -2,27 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <title>Login</title>
   </head>
   <body>
+    <header>
+      <ul class="nav nav-pills">
+        <li class="active"><a href="/">Login</a></li>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/my_page">My Page</a></li>
+      </ul>
+      <ul class="nav nav-pills">
+        <li class="logout"><a href="/logout">Logout</a></li>
+      </ul>
+    </header>
+
     <div class="loginSection">
-      <form class="login" action="/login/" method="POST">
+      <form class="login" action="/home" method="POST">
         <h1>Sign In</h1>
-        <input type="text" name="username" placeholder="Username" value="" required>
-        <input type="password" name="password" placeholder="Password" value="" required>
-        <button type="button" name="submit">Submit</button>
-      </form>
-    </div>
-    <h2>OR</h2>
-    <div class="signupSection">
-      <form class="signUp" action="/welcome/" method="POST">
-        <h1>Sign Up</h1>
-        <input type="text" name="firstName" placeholder="First Name" value="" required>
-        <input type="text" name="lastName" placeholder="Last Name" value="">
-        <input type="text" name="userName" placeholder="Username" value="" required>
-        <input type="password" name="password" placeholder="Password" value="" required>
-        <button type="button" name="create">Create</button>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" name="submit">Submit</button>
       </form>
     </div>
   </body>

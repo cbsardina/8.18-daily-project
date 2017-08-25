@@ -4,6 +4,23 @@ body {
   background-color: #627264;
   color: #6F636D;
 }
+header {
+  padding: 2em 0;
+  background-color: #C5E7E2;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+header ul {
+  margin-top: 0;
+}
+.nav li {
+  margin: .5em 1.5em;
+}
+.logout a {
+  color: red;
+  margin-left: 3em;
+}
 input {
   margin: 1em;
   font-size: 1em;
@@ -67,4 +84,7 @@ button:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.home {
+  background-color: #fff;
 }
