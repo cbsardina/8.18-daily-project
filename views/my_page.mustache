@@ -7,16 +7,23 @@
     <title>myPage</title>
   </head>
   <body class="home">
+<!-- ---------- HEADER ---------- -->
     <header>
       <ul class="nav nav-pills">
         <li><a href="/">Login</a></li>
         <li><a href="/home">Home</a></li>
         <li class="active"><a href="/my_page">My Page</a></li>
+        <li><a href="/signup">Signup</a></li>
       </ul>
       <ul class="nav nav-pills">
         <li class="logout"><a href="/logout">Logout</a></li>
       </ul>
     </header>
-    <h1>This is myPage page</h1>
+<!-- ---------- MAIN ---------- -->
+    {{#user}}
+    <h1 class="myPage">Welcome {{name_first}} {{name_last}} to your page</h1>
+    <h3 class="myPage">You are logged in as {{username}}.</h3>
+    <h3 class="myPage">Your password is {{password}}</h3>
+    {{/user}}
   </body>
 </html>

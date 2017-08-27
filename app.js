@@ -33,18 +33,14 @@ app.use(
     cookie: { maxAge: null }
   }))
 
-  app.use(function (req, res, next) {
-    if (req.session.usr) {
-      req.isAuthenticated = true
-    } else {
-      req.isAuthenticated = false
+  function authorize(req, res, next) {
+    if(req.session.usr) {
+      next();
     }
-    console.log(req.isAuthenticated, 'session')
-    next()
-  })
-
-// ========== ROUTER ============
-// app.use('/', routesFile)
+    else {
+      res.render('sorry');
+    }
+  }
 
 //========== ROUTES =================
 app.get('/', (req, res) => {
@@ -52,48 +48,44 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-  res.render('login', {isAuthenticated: req.isAuthenticated});
+  res.render('login');
 })
 
-// ----------- Login ----------------
+app.get('/home', authorize, (req, res) => {
+  const user = dal.getUser(req.session.usr['username'])
+  res.render('home', {user: user});
+})
+
+// ---------- SIGNUP PAGE ------------------
+app.get('/signup', (req, res) => {
+  res.render('signup')
+})
+app.post('/signup', (req, res) => {
+    let newbie = dal.addUsr(req.body.firstName, req.body.lastName, req.body.userName, req.body.createPassword);
+    res.redirect('/login');
+  })
+// ---------- HOME PAGE ------------------
 app.post('/home', (req, res) => {
-  const user = dal.isUser(req.body.username);
+  const user = dal.getUser(req.body.username);
   if (req.body.password === user.password) {
-    req.session.usr = {name: user.name};
-    res.render('home');
+    req.session.usr = {username: user.username};
+    res.render('home', {user});
   }
-  else { res.send('Please reload and re-enter your username and password.')}
+  else { res.redirect('/login')}
+});
+
+// ---------- MyPage ------------------
+app.get('/my_page', authorize, (req, res) => {
+    const user = dal.getUser(req.session.usr['username'])
+    res.render('my_page', {user});
 })
 
-// ---------- Home ------------------
-app.get('/my_page', (req, res) => {
-  if (req.isAuthenticated) {
-    const user = dal.isUser(req.params.username)
-    res.render('my_page', {user, loggedIn: req.session.usr});
-  }
-  else {
-    res.redirect('/login')
-  }
-})
-// ---------- my_page ------------------
-// app.get('/my_page', (req, res) => {
-//   res.render('my_page');
-// })
 //----------- logout ------------------
 app.get('/logout', (req, res) => {
-  req.session.destroy()
-  res.redirect('/login')
+  req.session.destroy(() =>{
+    res.redirect('/login');
+  })
 })
-
-// // ------ isAuthenticated -----
-// app.get('/', (req, res) => {
-//   if(req.isAuthenticated) {
-//     let users = dal.getAllUsers();
-//     res.render('/', {loggedUsr:req.session.usr});
-//     console.log("Check this");
-//   }
-//   else { res.redirect('/login')};
-// })
 
 //////////////////////////////////////////////////
 //Port setup

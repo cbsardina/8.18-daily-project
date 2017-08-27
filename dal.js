@@ -4,27 +4,20 @@
 let users = require('./data.js')
 //==============RENDER LOGIN PAGE ====================
 
-function getAllUsers(){
-  return users;
-}
-
-function isUser(usrNm) {
-  let user = '';
-  for(let i in users) {
-    if(usrNm === users[i].username) {
-      user = users[i];
-    }
+function getUser(usrNm) {
+   let user = '';
+   for(let i in users) {
+     if(usrNm === users[i].username) {
+       user = users[i];
+     }
+   }
+   return user;
   }
-  return user;
-}
 
-function getByUsername (usrs) {
-  let getUsrNm = users.find(isUser);
-  console.log('getByUsername =>' + getUsrNm);
-  return getUsrNm;
+  function addUsr (newFirstNm, newLastNm, newUsrNm, newPass) {
+    let newUser = {id: users.length +1, name_first: newFirstNm, name_last: newLastNm, username: newUsrNm, password: newPass };
+    users.push(newUser);
 }
 
 //=================================================
-module.exports = {
-  getByUsername, getAllUsers, isUser,
-}
+module.exports = { getUser, addUsr }

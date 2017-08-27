@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
-    <title>Home</title>
+    <title>Login</title>
   </head>
-  <body class="home">
-<!-- ---------- HEADER ---------- -->
+  <body>
     <header>
       <ul class="nav nav-pills">
-        <li><a href="/">Login</a></li>
-        <li  class="active"><a href="/home">Home</a></li>
+        <li class="active"><a href="/">Login</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/my_page">My Page</a></li>
         <li><a href="/signup">Signup</a></li>
       </ul>
@@ -19,10 +18,8 @@
         <li class="logout"><a href="/logout">Logout</a></li>
       </ul>
     </header>
-<!-- ---------- MAIN ---------- -->
-      {{#user}}
-      <h1 class="myPage">Welcome {{name_first}} to the home page!</h1>
-      <h3 class="myPage">You are logged in as {{username}}.</h3>
-      {{/user}}
+    <div class="loginSection">
+      <h1>Sorry, you have to login to view that page. Please navigate to the<a href="/login"> LOGIN </a>page to enter your credentials or to the<a href="/signup"> SIGNUP </a>page to create an account.</h1>
+    </div>
   </body>
 </html>

@@ -27,6 +27,9 @@ input {
   padding: .5em;
   width: 30%;
 }
+.loginSection h1 {
+  text-align: center;
+}
 h1 {
   margin: 0 auto;
   font-size: 4em;
@@ -87,4 +90,8 @@ button:active {
 }
 .home {
   background-color: #fff;
+}
+.myPage {
+  text-align: center;
+  margin-top: 2em;
 }
